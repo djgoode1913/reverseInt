@@ -41,8 +41,9 @@ int main(int argc, const char * argv[]) {
         }
         
         NSString *newNum = [[ d valueForKey:@"description"] componentsJoinedByString:@""];
-        NSLog(@"%@", newNum);
-        
+        int numNew = [newNum intValue];
+        NSLog(@"%i", numNew);
+
         
     }
     return 0;
