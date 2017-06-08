@@ -18,37 +18,30 @@ int main(int argc, const char * argv[]) {
         
         int i;
         int x = 12345;
-        
-        
         NSNumber *num = [[ NSNumber alloc] initWithInt:x];
-        
         NSString *myNum = [num stringValue];
+        NSMutableArray *c = [[ NSMutableArray alloc] initWithCapacity: [myNum length]];
+        NSMutableArray *d = [[ NSMutableArray alloc] initWithCapacity: [myNum length]];
         
-        NSMutableArray *c = [[ NSMutableArray alloc] initWithCapacity:
-                             [myNum length]];
         
+        for ( i = 0; i < [myNum length]; i++) {
+            NSString *iChar = [NSString stringWithFormat:@"%c", [myNum characterAtIndex:i]];
+            [c addObject:iChar];  
+        }
+        
+     
         long j= [myNum length];
         j--;
+        while (j >= 0) { 
+            
+            NSString *jChar = [NSString stringWithFormat:@"%c", [myNum characterAtIndex:j]];
+            [d addObject:jChar];
+            j--;
+            
+        }
         
-        
-        
-        
-        
-            for ( i = 0; i < [myNum length]; i++) {
-                NSString *iChar = [NSString stringWithFormat:@"%c",
-                                  [myNum characterAtIndex:i]];
-                                  [c addObject:iChar];
-                }
-        
-        
-    
-        
-            while (j >= 0) {
-                
-                NSLog(@"%@", c[j]);
-                j--;
-                
-                }
+        NSString *newNum = [[ d valueForKey:@"description"] componentsJoinedByString:@""];
+        NSLog(@"%@", newNum);
         
         
     }
